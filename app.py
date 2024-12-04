@@ -48,11 +48,11 @@ def main():
         # Metrics
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric("Total GDV", f"£{metrics['total_gdv']:,.2f}")
+            st.metric("Total GDV", f"RM{metrics['total_gdv']:,.2f}")
         with col2:
-            st.metric("Total GDC", f"£{metrics['total_gdc']:,.2f}")
+            st.metric("Total GDC", f"RM{metrics['total_gdc']:,.2f}")
         with col3:
-            st.metric("Gross Profit", f"£{metrics['total_gpm']:,.2f}")
+            st.metric("Gross Profit", f"RM{metrics['total_gpm']:,.2f}")
         with col4:
             st.metric("GPM %", f"{metrics['gpm_percentage']:.1f}%")
 
@@ -75,9 +75,9 @@ def main():
             project_name = st.text_input("Project Name")
             col1, col2 = st.columns(2)
             with col1:
-                gdv = st.number_input("GDV (£)", min_value=0.0)
+                gdv = st.number_input("GDV (RM)", min_value=0.0)
             with col2:
-                gdc = st.number_input("GDC (£)", min_value=0.0)
+                gdc = st.number_input("GDC (RM)", min_value=0.0)
 
             status = st.selectbox("Status", ["Planning", "In Progress", "Completed"])
 
@@ -113,10 +113,10 @@ def main():
                         st.write(f"Start Date: {project['development_data']['start_date']}")
                         st.write(f"Completion Date: {project['development_data']['completion_date']}")
                     with col2:
-                        st.write(f"GDV: £{project['development_data']['gdv']:,.2f}")
-                        st.write(f"GDC: £{project['development_data']['gdc']:,.2f}")
+                        st.write(f"GDV: RM{project['development_data']['gdv']:,.2f}")
+                        st.write(f"GDC: RM{project['development_data']['gdc']:,.2f}")
                         gpm = project['development_data']['gdv'] - project['development_data']['gdc']
-                        st.write(f"GPM: £{gpm:,.2f}")
+                        st.write(f"GPM: RM{gpm:,.2f}")
         else:
             st.info("No projects to display")
 
@@ -127,9 +127,9 @@ def main():
 
         with col1:
             st.subheader("Financial Summary")
-            st.write(f"Total GDV: £{metrics['total_gdv']:,.2f}")
-            st.write(f"Total GDC: £{metrics['total_gdc']:,.2f}")
-            st.write(f"Total GPM: £{metrics['total_gpm']:,.2f}")
+            st.write(f"Total GDV: RM{metrics['total_gdv']:,.2f}")
+            st.write(f"Total GDC: RM{metrics['total_gdc']:,.2f}")
+            st.write(f"Total GPM: RM{metrics['total_gpm']:,.2f}")
             st.write(f"GPM %: {metrics['gpm_percentage']:.1f}%")
 
         with col2:
